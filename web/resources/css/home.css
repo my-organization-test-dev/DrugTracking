@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 2, 2019, 7:07:49 AM
+    Author     : hp
+*/
+
+body{
+    padding: 0;
+    margin: 0;
+
+}
+
+ui-widget-content .ui-datatable-odd{
+    background-color: red ! Important;
+}
+.all{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+.top{
+    width: 100%;
+    background-color: cadetblue; 
+    padding: 0px;
+    margin: 0px;
+    height: 80px;
+}
+.left{
+    float: left;
+    width: 13%;
+    border-right: 1px solid black;
+    height: 1000px;
+
+}
+.commandButton{
+    width: 100%;
+    padding: 3px;
+    margin: 1px;
+}
+.middle{
+     float: left;
+    width: 75%;
+}
+.middlestore{
+     float: left;
+    width: 100%;
+}
+.right{
+    float: left;
+    background-color:#ffffff;
+    width: 8%;
+   border-left: 1px solid black;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #001d26;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+
+

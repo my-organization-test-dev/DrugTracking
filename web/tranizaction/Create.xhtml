@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTranizactionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_no}" for="no" />
+                    <h:inputText id="no" value="#{tranizactionController.selected.no}" title="#{bundle.CreateTranizactionTitle_no}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_no}"/>
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_batchNo}" for="batchNo" />
+                    <h:inputText id="batchNo" value="#{tranizactionController.selected.batchNo}" title="#{bundle.CreateTranizactionTitle_batchNo}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_batchNo}"/>
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{tranizactionController.selected.amount}" title="#{bundle.CreateTranizactionTitle_amount}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_amount}"/>
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{tranizactionController.selected.status}" title="#{bundle.CreateTranizactionTitle_status}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_bayer}" for="bayer" />
+                    <h:selectOneMenu id="bayer" value="#{tranizactionController.selected.bayer}" title="#{bundle.CreateTranizactionTitle_bayer}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_bayer}">
+                        <f:selectItems value="#{organizationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateTranizactionLabel_seller}" for="seller" />
+                    <h:selectOneMenu id="seller" value="#{tranizactionController.selected.seller}" title="#{bundle.CreateTranizactionTitle_seller}" required="true" requiredMessage="#{bundle.CreateTranizactionRequiredMessage_seller}">
+                        <f:selectItems value="#{organizationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tranizactionController.create}" value="#{bundle.CreateTranizactionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tranizactionController.prepareList}" value="#{bundle.CreateTranizactionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTranizactionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

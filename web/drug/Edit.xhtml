@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDrugTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDrugLabel_drugId}" for="drugId" />
+                    <h:inputText id="drugId" value="#{drugController.selected.drugId}" title="#{bundle.EditDrugTitle_drugId}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_drugId}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_batchNumber}" for="batchNumber" />
+                    <h:inputText id="batchNumber" value="#{drugController.selected.batchNumber}" title="#{bundle.EditDrugTitle_batchNumber}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_batchNumber}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_brandName}" for="brandName" />
+                    <h:inputText id="brandName" value="#{drugController.selected.brandName}" title="#{bundle.EditDrugTitle_brandName}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_brandName}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_genericName}" for="genericName" />
+                    <h:inputText id="genericName" value="#{drugController.selected.genericName}" title="#{bundle.EditDrugTitle_genericName}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_genericName}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_TGroup}" for="TGroup" />
+                    <h:inputText id="TGroup" value="#{drugController.selected.TGroup}" title="#{bundle.EditDrugTitle_TGroup}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_TGroup}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_subTGroup}" for="subTGroup" />
+                    <h:inputText id="subTGroup" value="#{drugController.selected.subTGroup}" title="#{bundle.EditDrugTitle_subTGroup}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_subTGroup}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_manufacturer}" for="manufacturer" />
+                    <h:inputText id="manufacturer" value="#{drugController.selected.manufacturer}" title="#{bundle.EditDrugTitle_manufacturer}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_manufacturer}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_countryOfOrgin}" for="countryOfOrgin" />
+                    <h:inputText id="countryOfOrgin" value="#{drugController.selected.countryOfOrgin}" title="#{bundle.EditDrugTitle_countryOfOrgin}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_countryOfOrgin}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_registerDate}" for="registerDate" />
+                    <h:inputText id="registerDate" value="#{drugController.selected.registerDate}" title="#{bundle.EditDrugTitle_registerDate}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_registerDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_expirDate}" for="expirDate" />
+                    <h:inputText id="expirDate" value="#{drugController.selected.expirDate}" title="#{bundle.EditDrugTitle_expirDate}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_expirDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{drugController.selected.amount}" title="#{bundle.EditDrugTitle_amount}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_amount}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_dosageForm}" for="dosageForm" />
+                    <h:inputText id="dosageForm" value="#{drugController.selected.dosageForm}" title="#{bundle.EditDrugTitle_dosageForm}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_dosageForm}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_strength}" for="strength" />
+                    <h:inputText id="strength" value="#{drugController.selected.strength}" title="#{bundle.EditDrugTitle_strength}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_strength}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_drugInfo}" for="drugInfo" />
+                    <h:inputTextarea rows="4" cols="30" id="drugInfo" value="#{drugController.selected.drugInfo}" title="#{bundle.EditDrugTitle_drugInfo}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_drugInfo}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{drugController.selected.status}" title="#{bundle.EditDrugTitle_status}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.EditDrugLabel_cuerntOwner}" for="cuerntOwner" />
+                    <h:selectOneMenu id="cuerntOwner" value="#{drugController.selected.cuerntOwner}" title="#{bundle.EditDrugTitle_cuerntOwner}" required="true" requiredMessage="#{bundle.EditDrugRequiredMessage_cuerntOwner}">
+                        <f:selectItems value="#{organizationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{drugController.update}" value="#{bundle.EditDrugSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDrugViewLink}"/>
+                <br />
+                <h:commandLink action="#{drugController.prepareList}" value="#{bundle.EditDrugShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDrugIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminEmpty}" rendered="#{adminController.items.rowCount == 0}"/>
+
+                <p:dataTable value="#{adminController.items}" var="item">     
+                    <p:column headerText="no">
+                            <h:outputText value="#{item.no}"/>
+                        </p:column>
+                    <p:column headerText="id">
+                            <h:outputText value="#{item.adminId}"/>
+                        </p:column>
+                    <p:column headerText="firdt name">
+                            <h:outputText value="#{item.firstName}"/>
+                        </p:column>
+                    <p:column headerText="middle Name">
+                            <h:outputText value="#{item.middleName}"/>
+                        </p:column>
+                    <p:column headerText="last name">
+                            <h:outputText value="#{item.lastName}"/>
+                        </p:column>
+                        <p:column headerText="region">
+                            <h:outputText value="#{item.region}"/>
+                        </p:column>
+                        <p:column headerText="city">
+                            <h:outputText value="#{item.city}"/>
+                        </p:column>
+                    <p:column headerText="kebele">
+                            <h:outputText value="#{item.kebele}"/>
+                        </p:column>
+                    <p:column headerText="status">
+                            <h:outputText value="#{item.status}"/>
+                        </p:column>
+                        <p:column>
+                            <h:commandLink action="#{adminController.prepareView}" value="#{bundle.ListAdminViewLink}"/>
+                        </p:column>
+                    </p:dataTable>
+                <br />
+                <h:commandLink action="#{adminController.prepareCreate}" value="#{bundle.ListAdminCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

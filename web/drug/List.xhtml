@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDrugTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDrugEmpty}" rendered="#{drugController.items.rowCount == 0}"/>
+
+                <p:dataTable value="#{drugController.listOfDrug()}" var="item" class="dtatable_tx" style="font-size: 14px;">   
+                    <p:column headerText="batchNumber">
+                        <h:outputText value="#{item.batchNumber}"/>
+                    </p:column>
+                    <p:column headerText="brandName">
+                        <h:outputText value="#{item.brandName}"/>
+                    </p:column>
+                    <p:column headerText="genericName">
+                        <h:outputText value="#{item.genericName}"/>
+                    </p:column>
+                    <p:column headerText="TGroup">
+                        <h:outputText value="#{item.TGroup}"/>
+                    </p:column>
+                    <p:column headerText="subTGroup">
+                        <h:outputText value="#{item.subTGroup}"/>
+                    </p:column>
+                    <p:column headerText="manufacturer">
+                        <h:outputText value="#{item.manufacturer}"/>
+                    </p:column>
+                    <p:column headerText="countryOfOrgin">
+                        <h:outputText value="#{item.countryOfOrgin}"/>
+                    </p:column>
+                    <p:column headerText="registerDate">
+                        <h:outputText value="#{item.registerDate}">
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="expirDate">
+                        <h:outputText value="#{item.expirDate}">
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="amount">
+                        <h:outputText value="#{item.amount}"/>
+                    </p:column>
+                    <p:column headerText="dosageForm">
+                        <h:outputText value="#{item.dosageForm}"/>
+                    </p:column>
+                    <p:column headerText="strength">
+                        <h:outputText value="#{item.strength}"/>
+                    </p:column>
+                    <p:column headerText="drugInfo">
+                        <h:outputText value="#{item.drugInfo}"/>
+                    </p:column>
+                    <p:column headerText="status">
+                        <h:outputText value="#{item.status}"/>
+                    </p:column>
+                    <p:column headerText="Owner">
+                        <h:outputText value="#{item.cuerntOwner}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="ON"/><br/><br/>
+                        <p:commandButton value="Off"/>
+                    </p:column>
+                </p:dataTable>
+
+                <br />
+                <h:commandLink action="#{drugController.prepareCreate}" value="record drug"/>
+                <br />
+                <br />
+                <h:link outcome="/faces/employee/Home.xhtml?faces-redirect=true" value="home"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

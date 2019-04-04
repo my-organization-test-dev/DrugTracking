@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrganizationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_orgId}" for="orgId" />
+                    <h:inputText id="orgId" value="#{organizationController.selected.orgId}" title="#{bundle.EditOrganizationTitle_orgId}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_orgId}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_orgName}" for="orgName" />
+                    <h:inputText id="orgName" value="#{organizationController.selected.orgName}" title="#{bundle.EditOrganizationTitle_orgName}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_orgName}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{organizationController.selected.region}" title="#{bundle.EditOrganizationTitle_region}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_region}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{organizationController.selected.city}" title="#{bundle.EditOrganizationTitle_city}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_kebele}" for="kebele" />
+                    <h:inputText id="kebele" value="#{organizationController.selected.kebele}" title="#{bundle.EditOrganizationTitle_kebele}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_kebele}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_healthProfessionalName}" for="healthProfessionalName" />
+                    <h:inputText id="healthProfessionalName" value="#{organizationController.selected.healthProfessionalName}" title="#{bundle.EditOrganizationTitle_healthProfessionalName}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_healthProfessionalName}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_registerDate}" for="registerDate" />
+                    <h:inputText id="registerDate" value="#{organizationController.selected.registerDate}" title="#{bundle.EditOrganizationTitle_registerDate}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_registerDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_typeOgOrganzation}" for="typeOgOrganzation" />
+                    <h:inputText id="typeOgOrganzation" value="#{organizationController.selected.typeOgOrganzation}" title="#{bundle.EditOrganizationTitle_typeOgOrganzation}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_typeOgOrganzation}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_level}" for="level" />
+                    <h:inputText id="level" value="#{organizationController.selected.level}" title="#{bundle.EditOrganizationTitle_level}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_level}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{organizationController.selected.status}" title="#{bundle.EditOrganizationTitle_status}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.EditOrganizationLabel_owner}" for="owner" />
+                    <h:selectOneMenu id="owner" value="#{organizationController.selected.owner}" title="#{bundle.EditOrganizationTitle_owner}" required="true" requiredMessage="#{bundle.EditOrganizationRequiredMessage_owner}">
+                        <f:selectItems value="#{ownerController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{organizationController.update}" value="#{bundle.EditOrganizationSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOrganizationViewLink}"/>
+                <br />
+                <h:commandLink action="#{organizationController.prepareList}" value="#{bundle.EditOrganizationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOrganizationIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

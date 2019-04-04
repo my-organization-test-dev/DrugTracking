@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFmhacamanagerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_managerId}" for="managerId" />
+                    <h:inputText id="managerId" value="#{fmhacamanagerController.selected.managerId}" title="#{bundle.EditFmhacamanagerTitle_managerId}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_managerId}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{fmhacamanagerController.selected.firstName}" title="#{bundle.EditFmhacamanagerTitle_firstName}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_middleName}" for="middleName" />
+                    <h:inputText id="middleName" value="#{fmhacamanagerController.selected.middleName}" title="#{bundle.EditFmhacamanagerTitle_middleName}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_middleName}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{fmhacamanagerController.selected.lastName}" title="#{bundle.EditFmhacamanagerTitle_lastName}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_lastName}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{fmhacamanagerController.selected.region}" title="#{bundle.EditFmhacamanagerTitle_region}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_region}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{fmhacamanagerController.selected.city}" title="#{bundle.EditFmhacamanagerTitle_city}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_kebele}" for="kebele" />
+                    <h:inputText id="kebele" value="#{fmhacamanagerController.selected.kebele}" title="#{bundle.EditFmhacamanagerTitle_kebele}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_kebele}"/>
+                    <h:outputLabel value="#{bundle.EditFmhacamanagerLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{fmhacamanagerController.selected.status}" title="#{bundle.EditFmhacamanagerTitle_status}" required="true" requiredMessage="#{bundle.EditFmhacamanagerRequiredMessage_status}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{fmhacamanagerController.update}" value="#{bundle.EditFmhacamanagerSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFmhacamanagerViewLink}"/>
+                <br />
+                <h:commandLink action="#{fmhacamanagerController.prepareList}" value="#{bundle.EditFmhacamanagerShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFmhacamanagerIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

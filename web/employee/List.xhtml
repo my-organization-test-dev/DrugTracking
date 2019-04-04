@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEmployeeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEmployeeEmpty}" rendered="#{employeeController.items.rowCount == 0}"/>
+
+               <p:dataTable value="#{employeeController.items}" var="item">   
+                    <p:column headerText="employeeId">
+                            <h:outputText value="#{item.employeeId}"/>
+                        </p:column>
+                    <p:column headerText="firstName">
+                            <h:outputText value="#{item.firstName}"/>
+                        </p:column>
+                    <p:column headerText="middleName">
+                            <h:outputText value="#{item.middleName}"/>
+                        </p:column>
+                    <p:column headerText="lastName" >
+                            <h:outputText value="#{item.lastName}"/>
+                        </p:column>
+                    <p:column headerText="region">
+                            <h:outputText value="#{item.region}"/>
+                        </p:column>
+                    <p:column headerText="city">
+                            <h:outputText value="#{item.city}"/>
+                        </p:column>
+                    <p:column headerText="kebele">
+                            <h:outputText value="#{item.kebele}"/>
+                        </p:column>
+                    <p:column headerText="status">
+                            <h:outputText value="#{item.status}"/>
+                        </p:column>
+                    <p:column headerText="organization">
+                            <h:outputText value="#{item.organization}"/>
+                        </p:column>
+                    </p:dataTable>
+                <br />
+                <h:commandLink action="#{employeeController.prepareCreate}" value="#{bundle.ListEmployeeCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEmployeeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

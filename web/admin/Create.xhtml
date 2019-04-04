@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdminTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <p:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_no}" for="no" />
+                    <h:inputText id="no" value="#{adminController.selected.no}" title="#{bundle.CreateAdminTitle_no}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_no}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_adminId}" for="adminId" />
+                    <h:inputText id="adminId" value="#{adminController.selected.adminId}" title="#{bundle.CreateAdminTitle_adminId}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_adminId}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{adminController.selected.firstName}" title="#{bundle.CreateAdminTitle_firstName}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_middleName}" for="middleName" />
+                    <h:inputText id="middleName" value="#{adminController.selected.middleName}" title="#{bundle.CreateAdminTitle_middleName}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_middleName}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{adminController.selected.lastName}" title="#{bundle.CreateAdminTitle_lastName}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_lastName}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{adminController.selected.region}" title="#{bundle.CreateAdminTitle_region}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_region}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{adminController.selected.city}" title="#{bundle.CreateAdminTitle_city}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_kebele}" for="kebele" />
+                    <h:inputText id="kebele" value="#{adminController.selected.kebele}" title="#{bundle.CreateAdminTitle_kebele}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_kebele}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{adminController.selected.status}" title="#{bundle.CreateAdminTitle_status}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_status}"/>
+                </p:panelGrid>
+                <br />
+                <h:commandLink action="#{adminController.create}" value="#{bundle.CreateAdminSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{adminController.prepareList}" value="#{bundle.CreateAdminShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAdminIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

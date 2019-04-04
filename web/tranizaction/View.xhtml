@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTranizactionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_no}"/>
+                    <h:outputText value="#{tranizactionController.selected.no}" title="#{bundle.ViewTranizactionTitle_no}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_batchNo}"/>
+                    <h:outputText value="#{tranizactionController.selected.batchNo}" title="#{bundle.ViewTranizactionTitle_batchNo}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_amount}"/>
+                    <h:outputText value="#{tranizactionController.selected.amount}" title="#{bundle.ViewTranizactionTitle_amount}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_status}"/>
+                    <h:outputText value="#{tranizactionController.selected.status}" title="#{bundle.ViewTranizactionTitle_status}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_bayer}"/>
+                    <h:outputText value="#{tranizactionController.selected.bayer}" title="#{bundle.ViewTranizactionTitle_bayer}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_seller}"/>
+                    <h:outputText value="#{tranizactionController.selected.seller}" title="#{bundle.ViewTranizactionTitle_seller}"/>
+                    <h:outputText value="#{bundle.ViewTranizactionLabel_drugId}"/>
+                    <h:outputText value="#{tranizactionController.selected.drugId}" title="#{bundle.ViewTranizactionTitle_drugId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tranizactionController.destroyAndView}" value="#{bundle.ViewTranizactionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTranizactionEditLink}"/>
+                <br />
+                <h:commandLink action="#{tranizactionController.prepareCreate}" value="#{bundle.ViewTranizactionCreateLink}" />
+                <br />
+                <h:commandLink action="#{tranizactionController.prepareList}" value="#{bundle.ViewTranizactionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTranizactionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminLabel_no}"/>
+                    <h:outputText value="#{adminController.selected.no}" title="#{bundle.ViewAdminTitle_no}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_adminId}"/>
+                    <h:outputText value="#{adminController.selected.adminId}" title="#{bundle.ViewAdminTitle_adminId}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_firstName}"/>
+                    <h:outputText value="#{adminController.selected.firstName}" title="#{bundle.ViewAdminTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_middleName}"/>
+                    <h:outputText value="#{adminController.selected.middleName}" title="#{bundle.ViewAdminTitle_middleName}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_lastName}"/>
+                    <h:outputText value="#{adminController.selected.lastName}" title="#{bundle.ViewAdminTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_region}"/>
+                    <h:outputText value="#{adminController.selected.region}" title="#{bundle.ViewAdminTitle_region}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_city}"/>
+                    <h:outputText value="#{adminController.selected.city}" title="#{bundle.ViewAdminTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_kebele}"/>
+                    <h:outputText value="#{adminController.selected.kebele}" title="#{bundle.ViewAdminTitle_kebele}"/>
+                    <h:outputText value="#{bundle.ViewAdminLabel_status}"/>
+                    <h:outputText value="#{adminController.selected.status}" title="#{bundle.ViewAdminTitle_status}"/>
+                </h:panelGrid>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminController.prepareCreate}" value="#{bundle.ViewAdminCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminController.prepareList}" value="#{bundle.ViewAdminShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
